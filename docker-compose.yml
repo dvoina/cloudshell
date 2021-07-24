@@ -1,0 +1,12 @@
+version: '3'
+services:
+  cloudshell:
+    build:
+      context: cloudshell
+    image: cloudshell
+    volumes:
+      - .:/home/ansible/work
+
+
+
+  
