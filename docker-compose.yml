@@ -4,9 +4,28 @@ services:
     build:
       context: cloudshell
     image: cloudshell
+    user: ansible
     volumes:
-      - .:/home/ansible/work
+      - ${WORK}:/home/ansible/work
+      - ${HOME}/.ssh:/home/ansible/.ssh
+      - ./.gitconfig:/home/ansible/.gitconfig
 
+  wasm:
+    build:
+      context: wasm
+    image: wasm
+    user: wasm
+    volumes:
+      - ${WORK}:/home/wasm/work
+      - ${HOME}/.ssh:/home/wasm/.ssh
+      - ./.gitconfig:/home/wasm/.gitconfig
 
-
-  
+  rust:
+    build:
+      context: rust
+    image: rust
+    user: rust
+    volumes:
+      - ${WORK}:/home/rust/work
+      - ${HOME}/.ssh:/home/rust/.ssh
+      - ./.gitconfig:/home/rust/.gitconfig

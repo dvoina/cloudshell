@@ -3,7 +3,8 @@ FROM fedora
 RUN useradd --shell /usr/bin/zsh ansible
 WORKDIR /home/ansible
 RUN dnf update -y
-RUN dnf install -y git zsh python3-wheel python3-pip unzip openssl
+RUN dnf install -y git zsh python3-wheel python3-pip unzip openssl \
+    && ln -s /usr/bin/python3 /usr/bin/python
 
 #install ansible
 RUN pip install ansible
